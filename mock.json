@@ -1,0 +1,76 @@
+{
+  "seq": 1200,
+  "now": "2026-11-07T08:30:00.000Z",
+  "timezone": "Asia/Shanghai",
+  "spending": {
+    "today": { "rounds": 6, "tokens": 412300, "cost": 3.18, "missingTokens": 0, "missingCost": 1 },
+    "week": { "rounds": 37, "tokens": 2351000, "cost": 19.42, "missingTokens": 0, "missingCost": 3 }
+  },
+  "totals": { "running": 1, "queued": 1, "retrying": 0, "unknown": 0, "done": 30, "doneToday": 4, "nothing": 5, "attention": 1 },
+  "cards": [
+    {
+      "id": 18, "kind": "ask", "state": "open", "rule": "shop：线上告警排查",
+      "title": "要不要回滚 shop 昨晚的发布？",
+      "text": "下单接口的错误率从 0.2% 升到 4.1%，和昨晚 21:40 的发布同时开始，[错误率面板](https://grafana.example.com/d/shop-errors) 能看到。\n\n回滚会撤掉这次发布的优惠券改动，其余功能不受影响。\n\n建议先回滚，再查优惠券的空值处理。",
+      "options": ["回滚到上一个版本", "先不回滚，继续观察", "我自己处理"], "recommend": 0,
+      "choice": null, "answer": null, "result": null
+    }
+  ],
+  "recentCards": [
+    { "id": 17, "kind": "notice", "state": "closed", "rule": "每日早报", "title": "早报：11 月 7 日",
+      "text": "昨天新开 3 个 issue，合并 2 个 PR。\n\n[my-blog #57](https://github.com/example/my-blog/issues/57) 移动端代码块横向溢出，已经在修。\n\n其余见 [今日早报](https://example.com/brief/2026-11-07)。",
+      "options": [], "recommend": null, "choice": null, "answer": null, "result": null },
+    { "id": 16, "kind": "ask", "state": "decided", "rule": "my-blog：处理新 issue", "title": "移动端代码块横向溢出，要修吗？",
+      "text": "手机上代码块会撑出屏幕。", "options": ["修好后开 PR", "先不修"], "recommend": 0, "choice": 0, "answer": null, "result": null },
+    { "id": 15, "kind": "ask", "state": "done", "rule": "my-blog：处理新 issue", "title": "PR #56 修好了 RSS 中文标题乱码，要合并吗？",
+      "text": "改动只在 RSS 生成脚本。", "options": ["合并并发布", "先别合并"], "recommend": 0, "choice": 0, "answer": null,
+      "result": "已合并并发布，RSS 里的中文标题显示正常。" },
+    { "id": 14, "kind": "notice", "state": "closed", "rule": "网站巡检", "title": "网站巡检：/pricing 打不开",
+      "text": "11:00 检查时 /pricing 返回 502，其余页面正常。\n\n11:05 再查已恢复，原因是 CDN 回源超时。\n\n[查看巡检记录](https://example.com/watch/2026-11-07)",
+      "options": [], "recommend": null, "choice": null, "answer": null, "result": null },
+    { "id": 13, "kind": "ask", "state": "closed", "rule": "my-blog：处理新 issue", "title": "issue #54 是重复报告，要关掉吗？",
+      "text": "和 #51 是同一个问题。", "options": ["关掉并链接 #51", "保留"], "recommend": 0, "choice": null, "answer": null,
+      "result": "提问者自己关掉了，不用处理。" }
+  ],
+  "timers": [],
+  "sources": [
+    { "id": "github", "name": "GitHub", "events": 31 },
+    { "id": "shop", "name": "shop", "events": 12 },
+    { "id": "schedule", "name": "定时", "events": 40 }
+  ],
+  "lines": [
+    { "id": "每日早报", "name": "每日早报", "every": "每天 09:00", "next": "2026-11-08T01:00:00.000Z", "paused": null },
+    { "id": "网站巡检", "name": "网站巡检", "every": "每小时", "next": "2026-11-07T09:00:00.000Z", "paused": null },
+    { "id": "my-blog：处理新 issue", "name": "my-blog：处理新 issue", "every": null, "next": null, "paused": null },
+    { "id": "shop：线上告警排查", "name": "shop：线上告警排查", "every": null, "next": null, "paused": null }
+  ],
+  "pauses": [], "skipped": [], "elsewhere": [],
+  "agents": [
+    { "id": "claude", "name": "Claude Code", "worker": "mac-mini", "online": true, "seenAt": "2026-11-07T08:29:50.000Z" },
+    { "id": "codex", "name": "Codex", "worker": "mac-mini", "online": true, "seenAt": "2026-11-07T08:29:50.000Z" }
+  ],
+  "channels": [ { "id": "feishu", "name": "飞书", "online": true, "seenAt": "2026-11-07T08:29:45.000Z" } ],
+  "runs": [
+    { "id": 43, "rule": "每日早报", "state": "queued", "attempts": 0, "claimedAt": null, "finishedAt": null,
+      "notBefore": "2026-11-07T08:29:00.000Z", "summary": "", "error": "", "stopping": false, "events": [] },
+    { "id": 42, "rule": "my-blog：处理新 issue", "state": "claimed", "attempts": 0, "claimedAt": "2026-11-07T08:23:00.000Z",
+      "finishedAt": null, "notBefore": "2026-11-07T08:23:00.000Z", "summary": "", "error": "", "stopping": false,
+      "events": [ { "source": "github", "type": "card.answered", "subject": "my-blog#57", "summary": "移动端代码块横向溢出，要修吗？", "link": "" } ] },
+    { "id": 41, "rule": "shop：线上告警排查", "state": "done", "attempts": 0, "finishedAt": "2026-11-07T08:20:00.000Z",
+      "summary": "错误率从 0.2% 升到 4.1%，和昨晚的发布同时开始，等你决定要不要回滚。", "error": "", "events": [] },
+    { "id": 40, "rule": "网站巡检", "state": "nothing", "attempts": 0, "finishedAt": "2026-11-07T08:00:40.000Z",
+      "summary": "三个页面都能打开，响应时间正常。", "error": "", "events": [] },
+    { "id": 39, "rule": "my-blog：处理新 issue", "state": "done", "attempts": 0, "finishedAt": "2026-11-07T06:12:00.000Z",
+      "summary": "修好了 RSS 里中文标题乱码，开了 PR #56，等你决定要不要合并。", "error": "", "events": [] },
+    { "id": 38, "rule": "my-blog：处理新 issue", "state": "cancelled", "attempts": 0, "finishedAt": "2026-11-07T03:03:00.000Z",
+      "summary": "本人停止了这一轮", "error": "", "events": [] },
+    { "id": 37, "rule": "每日早报", "state": "done", "attempts": 0, "finishedAt": "2026-11-07T01:01:30.000Z",
+      "summary": "早报已发到飞书：3 个新 issue，2 个 PR 已合并。", "error": "", "events": [] },
+    { "id": 36, "rule": "网站巡检", "state": "unknown", "attempts": 1, "finishedAt": "2026-11-06T15:00:20.000Z",
+      "summary": "", "error": "Agent 没留下结果就退出了（退出码 137）", "events": [] },
+    { "id": 35, "rule": "网站巡检", "state": "nothing", "attempts": 0, "finishedAt": "2026-11-06T14:00:30.000Z",
+      "summary": "三个页面都能打开，响应时间正常。", "error": "", "events": [] }
+  ],
+  "hasMore": false, "nextBefore": null,
+  "unrouted": [ { "source": "shop", "type": "alert.disk", "subject": "db-1", "summary": "磁盘使用率 91%" } ]
+}
